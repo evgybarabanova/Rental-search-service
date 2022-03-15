@@ -37,7 +37,7 @@ const checkUserAndSession = async (req, res) => {
 				req.session.user = { id: user.id, name: user.name };
 				res.send("Юзер зашел") // Переписать на ответ статусом на фронт
 			} else {
-				res.send('Вы ввели неправильный пароль...')
+				res.send('Вы ввели неправильный пароль...');
 			}
 		} else {
 			res.send('Такого пользователя не существует. Зарегистрирутесь.');

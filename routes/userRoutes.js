@@ -1,12 +1,10 @@
-const express = require('express');
+const router = require('express').Router();
 
 const {
 	createUserAndSession,
 	checkUserAndSession,
 	destroySession,
 } = require('../controllers/authControllers');
-
-const router = express.Router();
 
 // Регистрация пользователя
 router.get('/registration', (req, res) => {
