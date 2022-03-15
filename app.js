@@ -42,7 +42,6 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(session(sessionConfig));
-app.use('/', superuserRoutes);
 
 // res.locals
 const sessionMiddle = (req, res, next) => {
@@ -57,7 +56,6 @@ app.use(sessionMiddle);
 app.use('/', indexRoutes);
 app.use('/user', userRoutes);
 app.use('/entry', entryRoutes);
-
 
 app.listen(PORT, () => {
 	console.log(`It's all good in da hood: ${PORT}`);

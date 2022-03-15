@@ -8,14 +8,14 @@ const {
 
 // Регистрация пользователя
 router.get('/registration', (req, res) => {
-	res.render(''); // ХБС!!!!!
+	res.render('user/registration');
 });
 
 router.post('/registration', createUserAndSession);
 
 // Вход
 router.get('/login', (req, res) => {
-	res.render(''); // ХБС!!!!!
+	res.render('user/login');
 });
 
 router.post('/login', checkUserAndSession);
