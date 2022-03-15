@@ -1,0 +1,41 @@
+{
+	"name": "rental-search-service",
+	"version": "1.0.0",
+	"description": "# По-русски",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node app.js",
+		"dev": "nodemon app.js --ignore sessions"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/evgybarabanova/Rental-search-service.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/evgybarabanova/Rental-search-service/issues"
+	},
+	"homepage": "https://github.com/evgybarabanova/Rental-search-service#readme",
+	"devDependencies": {
+		"eslint": "^8.11.0",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-plugin-import": "^2.25.4",
+		"nodemon": "^2.0.15",
+		"sequelize-cli": "^6.4.1"
+	},
+	"dependencies": {
+		"bcrypt": "^5.0.1",
+		"dotenv": "^16.0.0",
+		"express": "^4.17.3",
+		"express-session": "^1.17.2",
+		"hbs": "^4.2.0",
+		"morgan": "^1.10.0",
+		"pg": "^8.7.3",
+		"pg-hstore": "^2.3.4",
+		"sequelize": "^6.17.0",
+		"session-file-store": "^1.5.0"
+	}
+}
