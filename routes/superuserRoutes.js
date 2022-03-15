@@ -1,5 +1,7 @@
 const express = require('express');
     const router = express.Router();
+    const router = express.Router();
+const {Superuser} = require('../db/models');
     
     router.get('/registation', (req, res) => {
   res.render('user/registation');
