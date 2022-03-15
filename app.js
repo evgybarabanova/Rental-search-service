@@ -16,6 +16,7 @@ dbConnectionCheck();
 
 // routes import
 const indexRoutes = require('./routes/indexRoutes');
+const superuserRoutes = require('./routes/superuserRoutes');
 
 const sessionConfig = {
 	name: 'sid',
@@ -40,6 +41,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(session(sessionConfig));
+app.use('/', superuserRoutes);
 
 // res.locals
 const sessionMiddle = (req, res, next) => {
