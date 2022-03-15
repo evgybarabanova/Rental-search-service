@@ -16,7 +16,8 @@ dbConnectionCheck();
 
 // routes import
 const indexRoutes = require('./routes/indexRoutes');
-const superuserRoutes = require('./routes/superuserRoutes');
+const userRoutes = require('./routes/userRoutes');
+const entryRoutes = require('./routes/entryRoutes');
 
 const sessionConfig = {
 	name: 'sid',
@@ -54,6 +55,8 @@ app.use(sessionMiddle);
 
 // routes
 app.use('/', indexRoutes);
+app.use('/user', userRoutes);
+app.use('/entry', entryRoutes);
 
 
 app.listen(PORT, () => {
