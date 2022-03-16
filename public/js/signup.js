@@ -1,6 +1,5 @@
 const { signupForm } = document.forms;
 
-
 signupForm.addEventListener('submit', async (event) => {
   event.preventDefault();
   const dataObj = {
