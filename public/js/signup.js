@@ -1,5 +1,5 @@
 const { signupForm } = document.forms;
-console.log('>>>>>', signupForm);
+
 
 signupForm.addEventListener('submit', async (event) => {
 	event.preventDefault();
@@ -16,7 +16,6 @@ signupForm.addEventListener('submit', async (event) => {
 		},
 		body: JSON.stringify(dataObj),
 	});
-	console.log('RESPONSE >>>>>', response);
 
 	if (response.status === 500) {
 		alert('Что то пошло не так :( Мы уже знаем об ошибке. Попробуйте позже...');
