@@ -1,9 +1,8 @@
-<script defer src="/js/signup.js"></script>
+<script defer src="/js/signin.js"></script>
 
 <br />
-<form name="signupForm">
-	<input name="name" placeholder="введите имя" required>
+<form method="POST" , action="/user/login">
 	<input type="email" name="email" placeholder="введите электронную почту" required>
 	<input type="password" name="password" placeholder="введите пароль" required>
-	<button class="btn btn-info">зарегистрироваться</button>
+	<button class="btn btn-info">войти</button>
 </form>

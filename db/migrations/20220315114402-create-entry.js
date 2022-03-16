@@ -20,9 +20,6 @@ module.exports = {
 					key: 'id',
 				},
 			},
-      img: {
-        type: Sequelize.TEXT,
-      },
       type: {
         type: Sequelize.STRING,
       },
