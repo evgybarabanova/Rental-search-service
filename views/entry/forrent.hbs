@@ -1,0 +1,27 @@
+<form name="rentForm" method="POST" action="/entry/new" enctype="multipart/form-data">
+
+	<input type="text" placeholder="Заголовок">
+
+	<select class="input-group mb-3" class="form-select" name="typeOfObject">
+		<option selected disabled>Выберите тип:</option>
+		<option value="Дом">Дом</option>
+		<option value="Квартира">Квартира</option>
+		<option value="Комната">Комната</option>
+	</select>
+
+	<textarea type="text" rows="5" cols="45" name="text" placeholder="Описание"></textarea>
+
+	<select class="form-select">
+		<option selected disabled>Количество комнат:</option>
+		<option value="1">Одна</option>
+		<option value="2">Две</option>
+		<option value="3">Три</option>
+	</select>
+
+	<input type="text" placeholder="Местоположение">
+
+	<input type="file" name="images" multiple />
+
+	<button type="submit">Разместить</button>
+
+</form>

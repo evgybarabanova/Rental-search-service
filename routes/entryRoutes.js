@@ -17,31 +17,35 @@ router.get('/', async (req, res) => { // ПУТЬ
 	}
 });
 
+// ДОБАВИТЬ ОБЪЯВЛЕНИЕ
+router.get('/new', (req, res) => {
+	res.render('entry/forrent');
+})
 
 
 router.get('/lalala', (req, res, next) => {
-  res.render('lol')
+	res.render('lol')
 })
 router.post('/new', upload, async (req, res) => {
-  console.log('🚀 ~ file: entryRoutes.js ~ line 61 ~ router.post ~ req.body', req.files);
-  // const entry = await Entry.create({title:'lalala', body:'lalala', geo:'lalala', user_id: null,type:'lalala', rooms:3})
-  // for (let i = 0; i < req.files.length; i++){
-  //   const image = await Image.create({entry_id:entry.id, image:req.files[i].filename})
-  // }
-  
-  res.send('sdsdsd');
+	console.log('🚀 ~ file: entryRoutes.js ~ line 61 ~ router.post ~ req.body', req.files);
+	// const entry = await Entry.create({title:'lalala', body:'lalala', geo:'lalala', user_id: null,type:'lalala', rooms:3})
+	// for (let i = 0; i < req.files.length; i++){
+	//   const image = await Image.create({entry_id:entry.id, image:req.files[i].filename})
+	// }
+
+	res.send('sdsdsd');
 });
 // ПОЛУЧИТЬ ОДНО ОБЪЯВЛЕНИЕ
 router.get('/:id', async (req, res) => {
-  try {
-    const entry = await Entry.findByPk(req.params.id);
-    res.render('', { entry });
-  } catch (error) {
-    res.render('error', {
-      message: 'Не удалось получить запись из базы данных',
-      error: {},
-    });
-  }
+	try {
+		const entry = await Entry.findByPk(req.params.id);
+		res.render('', { entry });
+	} catch (error) {
+		res.render('error', {
+			message: 'Не удалось получить запись из базы данных',
+			error: {},
+		});
+	}
 });
 
 module.exports = router;
