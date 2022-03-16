@@ -36,3 +36,20 @@
   </div>
 </div>
 </form>
+
+{{#if users}}
+<div class="users">
+  {{#each users}}
+  <div class="user">
+    <a href="/users/{{id}}">
+      <h5>{{name}}</h5>
+      <h4>{{age}}</h4>
+    </a>  
+    <hr />
+    <button id={{id}} class="btn btn-primary">Удалить</button>
+  </div>
+  {{/each}}
+</div>
+{{else}}
+  <h3>Пользователей нет :(</h3>
+{{/if}}
