@@ -5,12 +5,16 @@ const isAuth = (req, res, next) => {
     next();
   }else res.sendStatus(401);
 }
-
+const isAdmin = (req, res, next) => {
+  if (req.session.user.role === 'admin') {
+    next();
+  }
+}
 const isEditor = async (req, res, next) => {
  try {
    const entry = await Entry.findOne({where:{id:req.params.id}});
    const user = await User.findOne({where:{id:entry.user_id}});
-   if (user.id === req.session.user.id) {
+   if (user.id === req.session.user.id||req.session.user.role === 'admin') {
      next();
    }else res.send('Не трошь, не твоё!')
  } catch (error) {
