@@ -1,7 +1,6 @@
 const router = require('express').Router();
-const multer = require('multer');
-const path = require('path');
-const { Entry, User, Basket } = require('../db/models');
+const upload = require('../controllers/multerController')
+const { Entry, User, Basket, Image } = require('../db/models');
 
 // ВСЕ ОБЪЯВЛЕНИЯ
 router.get('/', async (req, res) => { // ПУТЬ
@@ -18,32 +17,6 @@ router.get('/', async (req, res) => { // ПУТЬ
 	}
 });
 
-// ПОЛУЧИТЬ ОДНО ОБЪЯВЛЕНИЕ
-
-// * Подключение multer хранилища
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'Images');
-  },
-  filename: (req, file, cb) => {
-cb(null, Date.now() + path.extname(file.originalname));
-  },
-});
-
-const upload = multer({
-  storage,
-  limits: { fileSize: 10000000 },
-  fileFilter: (req, file, cb) => {
-    const fileTypes = /jpeg|jpg|png/;
-    const mimeType = fileTypes.test(file.mimetype);
-    const extname = fileTypes.test(path.extname(file.originalname));
-    
-    if (mimeType && extname) {
-      return cb(null, true);
-    }
-    cb('Give proper files formate to upload');
-  },
-}).array('images', 10);
 
 
 router.get('/lalala', (req, res, next) => {
@@ -51,8 +24,14 @@ router.get('/lalala', (req, res, next) => {
 })
 router.post('/new', upload, async (req, res) => {
   console.log('🚀 ~ file: entryRoutes.js ~ line 61 ~ router.post ~ req.body', req.files);
-  res.sendStatus(200);
+  const entry = await Entry.create({title:'lalala', body:'lalala', geo:'lalala', user_id: null,type:'lalala', rooms:3})
+  for (let i = 0; i < req.files.length; i++){
+    const image = await Image.create({entry_id:entry.id, image:req.files[i].path})
+  }
+  
+  res.send(entry);
 });
+// ПОЛУЧИТЬ ОДНО ОБЪЯВЛЕНИЕ
 router.get('/:id', async (req, res) => {
   try {
     const entry = await Entry.findByPk(req.params.id);
