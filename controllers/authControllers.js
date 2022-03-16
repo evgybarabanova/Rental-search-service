@@ -6,36 +6,42 @@ const createUserAndSession = async (req, res) => {
 		name,
 		email,
 		password,
-		role,
 	} = req.body;
 
 	const hash = await bcrypt.hash(password, 10);
+
 	try {
 		const [user, created] = await User.findOrCreate({
 			where: { email },
-			default: { name, password: hash, role },
+			defaults: {
+				username: name,
+				password: hash,
+				email,
+				role: 'test',
+			},
 			raw: true,
 		});
 
 		if (created) {
-			req.session.user = { id: user.id, name: user.name };
-			res.send(user); // Переписать на ответ статусом на фронт
+			req.session.user = { id: user.id, name: user.username };
+			res.send(user); // Переписать на ответ статусом на фронт когда будут там фетчи
 		} else {
 			res.send('Такой email уже есть в базе');
 		}
 	} catch (error) {
-		res.send(500); // Переписать на ответ статусом на фронт
+		res.send('500'); // Переписать на ответ статусом на фронт когда будут там фетчи
 	}
 };
 
 const checkUserAndSession = async (req, res) => {
 	try {
 		const user = await User.findOne({ where: { email: req.body.email } });
+		console.log('USER>>>>>', user);
 		if (user) {
 			const passCheck = await bcrypt.compare(req.body.password, user.password);
 			if (passCheck) {
-				req.session.user = { id: user.id, name: user.name };
-				res.send("Юзер зашел") // Переписать на ответ статусом на фронт
+				req.session.user = { id: user.id, name: user.username };
+				res.send('Юзер зашел'); // Переписать на ответ статусом на фронт когда будут там фетчи
 			} else {
 				res.send('Вы ввели неправильный пароль...');
 			}
@@ -43,7 +49,7 @@ const checkUserAndSession = async (req, res) => {
 			res.send('Такого пользователя не существует. Зарегистрирутесь.');
 		}
 	} catch (error) {
-		res.send(500); // Переписать на ответ статусом на фронт
+		res.send(500); // Переписать на ответ статусом на фронт когда будут там фетчи
 	}
 };
 
