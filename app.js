@@ -47,12 +47,12 @@ app.use(session(sessionConfig));
 
 // res.locals
 app.use((req, res, next) => {
-  
-  res.locals.username = req.session?.user?.name;
-  
-  console.log("\n\x1b[33m", 'req.session.user :', req.session.user);
-  console.log("\x1b[35m", 'res.locals.username:', res.locals.username);
-  next();
+
+	res.locals.username = req.session?.user?.name;
+
+	console.log("\n\x1b[33m", 'req.session.user :', req.session.user);
+	console.log("\x1b[35m", 'res.locals.username:', res.locals.username);
+	next();
 });
 
 // routes
@@ -60,9 +60,9 @@ app.use('/', indexRoutes);
 app.use('/user', userRoutes);
 app.use('/entry', entryRoutes);
 app.use((req, res, next) => {
-  req.isAdmin = true;
-  next();
-}); 
+	req.isAdmin = true;
+	next();
+});
 
 app.listen(PORT, () => {
 	console.log(`It's all good in da hood: ${PORT}`);

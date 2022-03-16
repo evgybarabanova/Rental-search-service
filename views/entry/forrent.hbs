@@ -1,27 +1,44 @@
+<form>
+</form>
+
 <form name="rentForm" method="POST" action="/entry/new" enctype="multipart/form-data">
 
-	<input type="text" placeholder="Заголовок">
+	<div class="input-group mb-3">
+		<span class="input-group-text" id="basic-addon1">Заголовок:</span>
+		<input type="text" name="title" class="form-control" />
+	</div>
 
-	<select class="input-group mb-3" class="form-select" name="typeOfObject">
-		<option selected disabled>Выберите тип:</option>
-		<option value="Дом">Дом</option>
-		<option value="Квартира">Квартира</option>
-		<option value="Комната">Комната</option>
-	</select>
+	<div class="input-group mb-3">
+		<label class="input-group-text" for="inputGroupSelect01">Тип:</label>
+		<select class="form-select" name="type" class="form-select">
+			<option value="Дом">Дом</option>
+			<option value="Квартира">Квартира</option>
+			<option value="Комната">Комната</option>
+		</select>
+	</div>
 
-	<textarea type="text" rows="5" cols="45" name="text" placeholder="Описание"></textarea>
+	<div class="input-group mb-3">
+		<label class="input-group-text" for="inputGroupSelect01">Количество комнат:</label>
+		<select class="form-select" name="rooms">
+			<option value="1">Одна</option>
+			<option value="2">Две</option>
+			<option value="3">Три</option>
+		</select>
+	</div>
 
-	<select class="form-select">
-		<option selected disabled>Количество комнат:</option>
-		<option value="1">Одна</option>
-		<option value="2">Две</option>
-		<option value="3">Три</option>
-	</select>
+	<div class="input-group mb-3">
+		<span class="input-group-text">Описание:</span>
+		<textarea type="text" rows="5" name="body" class="form-control"></textarea>
+	</div>
 
-	<input type="text" placeholder="Местоположение">
+	<div class="input-group mb-3">
+		<span class="input-group-text" id="basic-addon1">Местоположение:</span>
+		<input type="text" name="geo" class="form-control" />
+	</div>
 
-	<input type="file" name="images" multiple />
+	<div class="input-group mb-3">
+		<input type="file" name="images" class="form-control" multiple />
+	</div>
 
-	<button type="submit">Разместить</button>
-
+	<button type="submit" class="btn btn-outline-success btn-lg">Разместить</button>
 </form>

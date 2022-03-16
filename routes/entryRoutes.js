@@ -20,21 +20,39 @@ router.get('/', async (req, res) => { // ПУТЬ
 // ДОБАВИТЬ ОБЪЯВЛЕНИЕ
 router.get('/new', (req, res) => {
 	res.render('entry/forrent');
-})
-
-
-router.get('/lalala', (req, res, next) => {
-	res.render('lol')
-})
-router.post('/new', upload, async (req, res) => {
-	console.log('🚀 ~ file: entryRoutes.js ~ line 61 ~ router.post ~ req.body', req.files);
-	// const entry = await Entry.create({title:'lalala', body:'lalala', geo:'lalala', user_id: null,type:'lalala', rooms:3})
-	// for (let i = 0; i < req.files.length; i++){
-	//   const image = await Image.create({entry_id:entry.id, image:req.files[i].filename})
-	// }
-
-	res.send('sdsdsd');
 });
+
+router.post('/new', upload, async (req, res) => {
+
+	try {
+		const entry = await Entry.create({
+			title: req.body.title,
+			body: req.body.body,
+			type: req.body.type,
+			rooms: req.body.rooms,
+			geo: req.body.geo,
+		})
+
+		for (let i = 0; i < req.files.length; i++) {
+			const image = await Image.create({ entry_id: entry.id, image: req.files[i].filename })
+			console.log('IMG -->', image);
+		}
+		console.log('NEW ENTRY >>>', entry);
+
+		// console.log('🚀 ~ file: entryRoutes.js ~ line 61 ~ router.post ~ req.body', req.files);
+
+		res.send('НОВОЕ ОБЪЯВЛЕНИЕ ===>>>', entry);
+
+	} catch (error) {
+		res.render('error', {
+			message: 'Не удалось создать объявление',
+			error: {},
+		});
+	}
+
+
+});
+
 // ПОЛУЧИТЬ ОДНО ОБЪЯВЛЕНИЕ
 router.get('/:id', async (req, res) => {
 	try {
