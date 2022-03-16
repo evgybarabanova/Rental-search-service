@@ -1,7 +1,13 @@
 const bcrypt = require('bcrypt');
 const { User } = require('../db/models');
 
-const createUserAndSession = async (req, res) => {
+exports.isValid = (req, res, next) => {
+  const { name, password, email } = req.body;
+  if(name && password && email) next();
+  else res.status(401).end();
+};
+
+exports.createUserAndSession = async (req, res) => {
 	const {
 		name,
 		email,
@@ -33,7 +39,7 @@ const createUserAndSession = async (req, res) => {
 	}
 };
 
-const checkUserAndSession = async (req, res) => {
+exports.checkUserAndCreateSession = async (req, res) => {
 	try {
 		const user = await User.findOne({ where: { email: req.body.email } });
 
@@ -53,7 +59,7 @@ const checkUserAndSession = async (req, res) => {
 	}
 };
 
-const destroySession = async (req, res) => {
+exports.destroySession = async (req, res) => {
 	if (req.session.user) {
 		await req.session.destroy();
 		res.clearCookie('sid');
@@ -63,4 +69,8 @@ const destroySession = async (req, res) => {
 	}
 };
 
-module.exports = { createUserAndSession, checkUserAndSession, destroySession };
+exports.renderSignInForm = (req, res) => res.render('signin', { isSignin: true });
+
+exports.renderSignUpForm = (req, res) => res.render('signup', { isSignup: true });
+
+

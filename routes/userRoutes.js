@@ -1,26 +1,29 @@
-const router = require('express').Router();
-
+const express = require("express");
 const {
-	createUserAndSession,
-	checkUserAndSession,
-	destroySession,
-} = require('../controllers/authControllers');
+  checkUserAndCreateSession,
+  createUserAndSession,
+  destroySession,
+  isValid,
+  renderSignInForm,
+  renderSignUpForm,
+} = require("../controllers/authControllers");
 
-// Регистрация пользователя
- router.get('/signup', (req, res) => {
- 	res.render('signup');
- });
+const router = express.Router();
 
-router.post('/signup', createUserAndSession);
+router
+  .route("/signup")
+  // Страница регистрации пользователя
+  .get(renderSignUpForm)
+  // Регистрация пользователя
+  .post(isValid, createUserAndSession);
 
-// Вход
-router.get('/signin', (req, res) => {
-	res.render('signin');
-});
+router
+  .route("/signin")
+  // Страница аутентификации пользователя
+  .get(renderSignInForm)
+  // Аутентификация пользователя
+  .post(checkUserAndCreateSession);
 
-router.post('/signin', checkUserAndSession);
 
-// Выход
-router.get('/logout', destroySession);
-
+router.get("/signout", destroySession);
 module.exports = router;
