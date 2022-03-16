@@ -12,13 +12,13 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       this.belongsTo(models.User, { foreignKey: 'user_id' });
       this.belongsTo(models.Basket, { foreignKey: 'entry_id' });
+      this.hasMany(models.Image, { foreignKey: 'entry_id' });
     }
   }
   Entry.init({
     title: DataTypes.STRING,
     body: DataTypes.TEXT,
     user_id: DataTypes.INTEGER,
-    img: DataTypes.TEXT,
     type: DataTypes.STRING,
     rooms: DataTypes.INTEGER,
     geo: DataTypes.STRING,
