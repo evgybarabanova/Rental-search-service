@@ -23,24 +23,24 @@ const createUserAndSession = async (req, res) => {
 		});
 
 		if (created) {
-			req.session.user = { id: user.id, name: user.username };
-			res.send(user); // Переписать на ответ статусом на фронт когда будут там фетчи
+			req.session.user = { id: user.id, name: user.username, role: user.role };
+			res.sendStatus(215); // Переписать на ответ статусом на фронт когда будут там фетчи
 		} else {
 			res.send('Такой email уже есть в базе');
 		}
 	} catch (error) {
-		res.send('500'); // Переписать на ответ статусом на фронт когда будут там фетчи
+		res.sendStatus(500); // Переписать на ответ статусом на фронт когда будут там фетчи
 	}
 };
 
 const checkUserAndSession = async (req, res) => {
 	try {
 		const user = await User.findOne({ where: { email: req.body.email } });
-		console.log('USER>>>>>', user);
+
 		if (user) {
 			const passCheck = await bcrypt.compare(req.body.password, user.password);
 			if (passCheck) {
-				req.session.user = { id: user.id, name: user.username };
+				req.session.user = { id: user.id, name: user.username, role: user.role };
 				res.send('Юзер зашел'); // Переписать на ответ статусом на фронт когда будут там фетчи
 			} else {
 				res.send('Вы ввели неправильный пароль...');
