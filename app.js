@@ -37,6 +37,7 @@ app.set('views', path.join(process.cwd(), 'views'));
 // partials
 hbs.registerPartials(path.join(process.cwd(), 'views', 'partials'));
 // middlewares
+app.use('/Images', express.static('./Images'));
 app.use(express.static(path.join(process.cwd(), 'public')));
 app.use(morgan('dev'));
 app.use(express.json());

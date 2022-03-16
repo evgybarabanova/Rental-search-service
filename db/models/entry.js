@@ -3,6 +3,7 @@ const {
 } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
+
 	class Entry extends Model {
 		/**
 		 * Helper method for defining associations.
@@ -11,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
 		 */
 		static associate(models) {
 			this.belongsTo(models.User, { foreignKey: 'user_id' });
-
+      this.hasMany(models.Image, { foreignKey: 'entry_id' });
 			this.belongsToMany(models.User, {
 				through: models.Basket,
 				foreignKey: 'entry_id',
@@ -23,7 +24,6 @@ module.exports = (sequelize, DataTypes) => {
 		title: DataTypes.STRING,
 		body: DataTypes.TEXT,
 		user_id: DataTypes.INTEGER,
-		img: DataTypes.TEXT,
 		type: DataTypes.STRING,
 		rooms: DataTypes.INTEGER,
 		geo: DataTypes.STRING,
