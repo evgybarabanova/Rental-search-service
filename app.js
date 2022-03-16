@@ -33,12 +33,12 @@ const sessionConfig = {
 
 // view setup engine
 app.set('view engine', 'hbs');
-app.set('views', path.join(process.cwd(), 'views'));
+// app.set('views', path.join(process.cwd(), 'views'));
 // partials
 hbs.registerPartials(path.join(process.cwd(), 'views', 'partials'));
 // middlewares
-app.use('/Images', express.static('./Images'));
-app.use(express.static(path.join(process.cwd(), 'public')));
+// app.use('/Images', express.static('./Images'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -46,13 +46,14 @@ app.use(session(sessionConfig));
 
 
 // res.locals
-const sessionMiddle = (req, res, next) => {
-	res.locals.user = req.session?.user;
-
-	next();
-};
-
-app.use(sessionMiddle);
+app.use((req, res, next) => {
+  
+  res.locals.username = req.session?.user?.name;
+  
+  console.log("\n\x1b[33m", 'req.session.user :', req.session.user);
+  console.log("\x1b[35m", 'res.locals.username:', res.locals.username);
+  next();
+});
 
 // routes
 app.use('/', indexRoutes);

@@ -3,7 +3,7 @@ const path = require('path');
 // * Подключение multer хранилища
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'Images');
+    cb(null, 'public/uploads');
   },
   filename: (req, file, cb) => {
 cb(null, Date.now() + path.extname(file.originalname));
