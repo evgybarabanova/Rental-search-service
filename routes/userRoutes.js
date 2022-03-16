@@ -7,9 +7,9 @@ const {
 } = require('../controllers/authControllers');
 
 // Регистрация пользователя
-router.get('/registration', (req, res) => {
-	res.render('user/registration');
-});
+ router.get('/registration', (req, res) => {
+ 	res.render('user/registration');
+ });
 
 router.post('/registration', createUserAndSession);
 
