@@ -7,18 +7,18 @@ const {
 } = require('../controllers/authControllers');
 
 // Регистрация пользователя
- router.get('/registration', (req, res) => {
- 	res.render('user/registration');
+ router.get('/signup', (req, res) => {
+ 	res.render('signup');
  });
 
-router.post('/registration', createUserAndSession);
+router.post('/signup', createUserAndSession);
 
 // Вход
-router.get('/login', (req, res) => {
-	res.render('user/login');
+router.get('/signin', (req, res) => {
+	res.render('signin');
 });
 
-router.post('/login', checkUserAndSession);
+router.post('/signin', checkUserAndSession);
 
 // Выход
 router.get('/logout', destroySession);

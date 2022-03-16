@@ -57,7 +57,7 @@ app.use((req, res, next) => {
 
 // routes
 app.use('/', indexRoutes);
-app.use('/user', userRoutes);
+app.use('/', userRoutes);
 app.use('/entry', entryRoutes);
 app.use((req, res, next) => {
 	req.isAdmin = true;

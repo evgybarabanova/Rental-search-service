@@ -9,7 +9,7 @@ signinForm.addEventListener('submit', async (event) => {
 		password: event.target.password.value,
 	};
 
-	const response = await fetch('/user/login', {
+	const response = await fetch('/signin', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
