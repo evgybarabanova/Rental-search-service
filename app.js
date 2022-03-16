@@ -58,6 +58,10 @@ app.use(sessionMiddle);
 app.use('/', indexRoutes);
 app.use('/user', userRoutes);
 app.use('/entry', entryRoutes);
+app.use((req, res, next) => {
+  req.isAdmin = true;
+  next();
+}); 
 
 app.listen(PORT, () => {
 	console.log(`It's all good in da hood: ${PORT}`);
