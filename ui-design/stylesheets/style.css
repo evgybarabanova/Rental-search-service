@@ -1,0 +1,53 @@
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+.icon {
+  width: 5vw;
+}
+
+ .btn-success {
+  margin-right: 20px;
+  display: flex;
+  justify-content: flex-end;
+} 
+
+.container-sm {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+}
+
+.container-xl {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 70px;
+}
+
+.form-range {
+  width: 150px;
+}
+
+.card {
+  margin-right: 20px;
+}
+
+.btn-group {
+  margin-right: 20px;
+}
+
+.form-range {
+  margin-left: 20px;
+  justify-content: center;
+}
+
+.footer{
+  font-size: larger;
+}
+
+/* .container-m{
+  background-image: url('/ui-design/images/back.jpg');
+  background-size: cover;
+  background-position: top center;
+  background-attachment: fixed; 
+} */
