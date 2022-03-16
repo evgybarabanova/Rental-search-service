@@ -1,0 +1,52 @@
+<script defer src="/js/signup.js"></script>
+
+<br />
+<form name="signupForm" method="POST" action="/user/registration">
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Заполните данные</h5>
+
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-floating mb-3">
+            <input type="name" class="form-control" id="floatingInput" placeholder="Name">
+            <label for="floatingInput">Name</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Отправить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+{{#if users}}
+<div class="users">
+  {{#each users}}
+  <div class="user">
+    <a href="/users/{{id}}">
+      <h5>{{name}}</h5>
+      <h4>{{age}}</h4>
+    </a>
+    <hr />
+    <button id={{id}} class="btn btn-primary">Удалить</button>
+  </div>
+  {{/each}}
+</div>
+{{else}}
+<h3>Пользователей нет :(</h3>
+{{/if}}
