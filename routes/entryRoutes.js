@@ -24,12 +24,12 @@ router.get('/lalala', (req, res, next) => {
 })
 router.post('/new', upload, async (req, res) => {
   console.log('🚀 ~ file: entryRoutes.js ~ line 61 ~ router.post ~ req.body', req.files);
-  const entry = await Entry.create({title:'lalala', body:'lalala', geo:'lalala', user_id: null,type:'lalala', rooms:3})
-  for (let i = 0; i < req.files.length; i++){
-    const image = await Image.create({entry_id:entry.id, image:req.files[i].path})
-  }
+  // const entry = await Entry.create({title:'lalala', body:'lalala', geo:'lalala', user_id: null,type:'lalala', rooms:3})
+  // for (let i = 0; i < req.files.length; i++){
+  //   const image = await Image.create({entry_id:entry.id, image:req.files[i].filename})
+  // }
   
-  res.send(entry);
+  res.send('sdsdsd');
 });
 // ПОЛУЧИТЬ ОДНО ОБЪЯВЛЕНИЕ
 router.get('/:id', async (req, res) => {
