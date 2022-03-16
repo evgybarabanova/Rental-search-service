@@ -58,7 +58,6 @@ app.use('/', indexRoutes);
 app.use('/user', userRoutes);
 app.use('/entry', entryRoutes);
 
-
 app.listen(PORT, () => {
 	console.log(`It's all good in da hood: ${PORT}`);
 });
