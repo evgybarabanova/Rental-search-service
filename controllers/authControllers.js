@@ -24,12 +24,12 @@ const createUserAndSession = async (req, res) => {
 
 		if (created) {
 			req.session.user = { id: user.id, name: user.username, role: user.role };
-			res.sendStatus(215); // Переписать на ответ статусом на фронт когда будут там фетчи
+			res.sendStatus(215);
 		} else {
 			res.send('Такой email уже есть в базе');
 		}
 	} catch (error) {
-		res.sendStatus(500); // Переписать на ответ статусом на фронт когда будут там фетчи
+		res.sendStatus(500);
 	}
 };
 
