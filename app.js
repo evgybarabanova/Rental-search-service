@@ -43,6 +43,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(session(sessionConfig));
 
+
 // res.locals
 const sessionMiddle = (req, res, next) => {
 	res.locals.user = req.session?.user;
