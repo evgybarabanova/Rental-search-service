@@ -1,46 +1,23 @@
 <!-- body -->
-{{#each entries}}
-<div class="card" style="width: 18rem;">
-
-  <img src="/uploads/{{myImage}}" class="card-img-top" alt="...">
-  
-  <div class="card-body">
-    <h5 class="card-title">{{title}}</h5>
-    <p class="card-text">{{type}}</p>
-     <p class="card-text">{{body}}</p>
-      
-    <a href="/entry/{{id}}" class="btn btn-primary">Подробнее</a>
-  </div>
-</div>
-{{/each}}
-
-
-
-
-
 
 <div class="container-sm">Мы поможем найти жилье Вашей мечты</div>
-<br />
 
-{{#each entries}}
-<div class="card" style="width: 18rem;">
-	<img src="..." class="card-img-top" alt="...">
-	<div class="card-body">
-		<h5 class="card-title">{{this.title}}</h5>
-		<p class="card-text">{{this.body}}
-		</p>
+<div class="container-entries">
+	{{#each entries}}
+	<div class="entry-card">
+
+		<img src="/uploads/{{myImage}}" class="card-img-top" alt="...">
+
+		<div class="card-body">
+			<h5 class="card-title">{{title}}</h5>
+			<p class="card-text">{{type}}</p>
+			<p class="card-text">{{body}}</p>
+
+			<a href="/entry/{{id}}" class="btn btn-primary">Подробнее</a>
+		</div>
 	</div>
-	<ul class="list-group list-group-flush">
-		<li class="list-group-item">Cras justo odio</li>
-		<li class="list-group-item">Dapibus ac facilisis in</li>
-		<li class="list-group-item">Vestibulum at eros</li>
-	</ul>
-	<div class="card-body">
-		<a href="#" class="card-link">Card link</a>
-		<a href="#" class="card-link">Another link</a>
-	</div>
+	{{/each}}
 </div>
-{{/each}}
 
 <div class="container-sm">Наши приемущества</div>
 
