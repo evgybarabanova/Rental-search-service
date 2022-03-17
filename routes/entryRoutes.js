@@ -2,6 +2,7 @@ const router = require('express').Router();
 const upload = require('../controllers/multerController')
 const { Entry, User, Basket, Image } = require('../db/models');
 
+
 // ВСЕ ОБЪЯВЛЕНИЯ
 router.get('/', async (req, res) => { // ПУТЬ
 	try {

@@ -19,6 +19,7 @@ const indexRoutes = require('./routes/indexRoutes');
 const userRoutes = require('./routes/userRoutes');
 const entryRoutes = require('./routes/entryRoutes');
 
+
 const sessionConfig = {
 	name: 'sid',
 	store: new FileStore(),
