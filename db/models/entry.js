@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
 	Entry.init({
 		title: DataTypes.STRING,
 		body: DataTypes.TEXT,
+    img: DataTypes.STRING,
 		user_id: DataTypes.INTEGER,
 		type: DataTypes.STRING,
 		rooms: DataTypes.INTEGER,
