@@ -8,9 +8,14 @@ router.get('/', async (req, res) => { // ПУТЬ
 	try {
 		const entries = await Entry.findAll({include: Image,
 			order: [['id', 'DESC']],
+      raw: true,
 		});
-    console.log("🚀 ~ file: entryRoutes.js ~ line 12 ~ router.get ~ entries", entries[0].Images[0])
-   
+    // console.log("🚀 ~ file: entryRoutes.js ~ line 12 ~ router.get ~ entries", entries)
+   const arr = entries.map((e)=> { 
+     e.myImage = e['Images.image']
+     return e
+    })
+   console.log("🚀 ~ file: entryRoutes.js ~ line 15 ~ router.get ~ arr", arr)
 		res.render('index', { entries }); // ХБС!!!
 	} catch (error) {
 		res.render('error', {
