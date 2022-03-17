@@ -1,5 +1,4 @@
 const { signupForm } = document.forms;
-console.log(signupForm);
 
 signupForm.addEventListener('submit', async (event) => {
   event.preventDefault();
