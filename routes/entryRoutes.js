@@ -3,19 +3,21 @@ const upload = require('../controllers/multerController')
 const { Entry, User, Basket, Image } = require('../db/models');
 
 // ВСЕ ОБЪЯВЛЕНИЯ
-router.get('/', async (req, res) => { // ПУТЬ
-	try {
-		const entries = await Entry.findAll({
-			order: [['id', 'DESC']],
-		});
-		res.render('НАЙТИ ЖИЛИЩЕ', { entries }); // ХБС!!!
-	} catch (error) {
-		res.render('error', {
-			message: 'Не удалось получить записи из базы данных',
-			error: {},
-		});
-	}
-});
+// router.get('/', async (req, res) => { // ПУТЬ
+// 	try {
+// 		const entries = await Entry.findAll({
+// 			order: [['id', 'DESC']],
+// 		});
+
+// 		console.log('&&&&&&&&&&', entries);
+// 		res.render('index', { entries }); // ХБС!!!
+// 	} catch (error) {
+// 		res.render('error', {
+// 			message: 'Не удалось получить записи из базы данных',
+// 			error: {},
+// 		});
+// 	}
+// });
 
 // ДОБАВИТЬ ОБЪЯВЛЕНИЕ
 router.get('/new', (req, res) => {
@@ -41,7 +43,7 @@ router.post('/new', upload, async (req, res) => {
 
 		// console.log('🚀 ~ file: entryRoutes.js ~ line 61 ~ router.post ~ req.body', req.files);
 
-		res.send('НОВОЕ ОБЪЯВЛЕНИЕ ===>>>', entry);
+		res.send(entry);
 
 	} catch (error) {
 		res.render('error', {
