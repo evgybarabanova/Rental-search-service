@@ -5,8 +5,7 @@ const router = express.Router();
 
 
 router.get('/', (req, res) => {
-	const message = '';
-	res.render('index', { message });
+	res.redirect('/entry');
 });
 
 // router.get('/secret',isAdminMiddle, (req, res) => {

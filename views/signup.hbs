@@ -1,0 +1,39 @@
+<h2>Регистрация</h2>
+ <script defer src="/js/signup.js"></script>
+<form id="signupForm">
+  <div class="form-group">
+    <label for="username">Логин:</label>
+      <input id="username" class="block w-100 no-outline no-border pad-1 mar-b-2" name="name" type="text" required pattern="[A-Za-z]\w+" minlength="4"
+        title="Латинские буквы, цифры и _">
+
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+      <input id="email" class="block w-100 no-outline no-border pad-1 mar-b-2" name="email" type="text" pattern="^[A-Z0-9a-z._%+-]+@[A-Z0-9a-z.-]+\.[A-Za-z]{2,}$" required>
+
+  </div>
+  <div class="form-group">
+    <label for="password">Пароль:</label>
+      <input id="password" class="block w-100 no-outline no-border pad-1 mar-b-2" name="password" type="password" required minlength="6">
+
+  </div>
+  <button type="submit" class="block button w-100 mar-t-4 mar-b-3 pad-2 round-1 text-c center no-border no-outline">Зарегистрироваться</button>
+</form>
+
+
+{{#if users}}
+<div class="users">
+  {{#each users}}
+  <div class="user">
+    <a href="/users/{{id}}">
+      <h5>{{name}}</h5>
+      <h4>{{age}}</h4>
+    </a>
+    <hr />
+    <button id={{id}} class="btn btn-primary">Удалить</button>
+  </div>
+  {{/each}}
+</div>
+{{else}}
+<h3>Пользователей нет :(</h3>
+{{/if}}

@@ -2,7 +2,7 @@
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="/">
-				<img class="icon" src="images/icon.png">
+				<img class="icon" src="/images/icon.png">
 			</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
 				aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,6 +13,7 @@
 					{{!-- <li class="nav-item">
 						<a class="nav-link active" aria-current="page" href="#">Найти жилье</a>
 					</li> --}}
+          
 					<li class="nav-item">
 						<a class="nav-link active" aria-current="page" href="/entry/new">Сдать жилье</a>
 					</li>
@@ -20,20 +21,18 @@
 				<span class="navbar-text">
 					???
 				</span>
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item">
-						<button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-							Регистрация
-						</button>
-						<form name="signupForm">
-					</li>
-					<li class="nav-item">
-						<button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-							Войти
-						</button>
-						<form name="signupForm">
-					</li>
-				</ul>
+			 <nav class="clearfix mar-b-1">
+        <ul class="no-bullets no-margin no-padding right">
+          {{#if username}}
+          <li class="pipe-separate t-light-green left"><a>{{username}}</a></li>
+          <li class="pipe-separate t-light-green left"><a href="/signout">Выйти</a></li>
+          {{/if}}
+          {{#unless username}}
+          <li class="pipe-separate t-light-green left"><a href="/signup">Регистрация</a></li>
+          <li class="pipe-separate t-light-green left"><a href="/signin">Войти</a></li>
+          {{/unless}}
+        </ul>
+      </nav>
 			</div>
 		</div>
 	</nav>
