@@ -1,4 +1,6 @@
-const router = require('express').Router();
+const express = require('express')
+const router = express.Router();
+const jsonBodyParser = express.json()
 
 const {
 	createUserAndSession,
@@ -7,18 +9,19 @@ const {
 } = require('../controllers/authControllers');
 
 // Регистрация пользователя
-router.get('/registration', (req, res) => {
-	res.render('user/registration');
-});
+ router.get('/registration', (req, res) => {
+ 	res.render('user/registration');
+ });
 
-router.post('/registration', createUserAndSession);
+
+router.post('/registration', jsonBodyParser, createUserAndSession);
 
 // Вход
 router.get('/login', (req, res) => {
 	res.render('user/login');
 });
 
-router.post('/login', checkUserAndSession);
+router.post('/login', jsonBodyParser, checkUserAndSession);
 
 // Выход
 router.get('/logout', destroySession);
