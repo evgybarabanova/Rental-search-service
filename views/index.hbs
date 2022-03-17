@@ -3,20 +3,22 @@
 <div class="container-sm">Мы поможем найти жилье Вашей мечты</div>
 
 <div class="container-entries">
-	{{#each entries}}
-	<div class="entry-card">
+	<div class="row row-cols-5">
+		{{#each entries}}
+		<div class="entry-card">
 
-		<img src="/uploads/{{myImage}}" class="card-img-top" alt="...">
+			<img src="/uploads/{{myImage}}" class="card-img-top" alt="...">
 
-		<div class="card-body">
-			<h5 class="card-title">{{title}}</h5>
-			<p class="card-text">{{type}}</p>
-			<p class="card-text">{{body}}</p>
+			<div class="card-body">
+				<h5 class="card-title">{{title}}</h5>
+				<p class="card-text">{{type}}</p>
+				<p class="card-text">{{body}}</p>
 
-			<a href="/entry/{{id}}" class="btn btn-primary">Подробнее</a>
+				<a href="/entry/{{id}}" class="btn btn-primary btn-sm">Подробнее</a>
+			</div>
 		</div>
+		{{/each}}
 	</div>
-	{{/each}}
 </div>
 
 <div class="container-sm">Наши приемущества</div>

@@ -13,6 +13,7 @@ body {
 } 
 
 .container-sm {
+	margin: 10px 0;
   display: flex;
   justify-content: center;
   font-size: 30px;
@@ -43,18 +44,4 @@ body {
 
 .footer{
   font-size: larger;
-}
-
-.container-entries {
-	width: 100%;
-	margin: 30px 0;
-	display:flex;
-	justify-content: space-between;
-	flex-flow: row wrap;
-}
-
-.entry-card {
-	border: 1px solid grey;
-	width: 30%;
-	margin: 10px 5px;
 }
