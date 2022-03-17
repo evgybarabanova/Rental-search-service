@@ -1,5 +1,7 @@
 body {
   background-color: rgb(255, 255, 255);
+  background: url('../images/depositphotos_87627748-stock-illustration-real-estate-icons-set.jpg') no-repeat;
+  background-position: center;
 }
 
 .icon {
@@ -17,6 +19,8 @@ body {
   display: flex;
   justify-content: center;
   font-size: 30px;
+  background-color: rgb(248, 248, 248);
+  margin: 10px 0 0 0;
 }
 
 .container-xl {
@@ -44,4 +48,32 @@ body {
 
 .footer{
   font-size: larger;
+  background:rgb(255, 255, 255);
 }
+<<<<<<< HEAD
+=======
+
+.container-entries {
+	width: 100%;
+	margin: 30px 0;
+	display:flex;
+	justify-content: space-between;
+	flex-flow: row wrap;
+}
+
+.entry-card {
+	border: 1px solid grey;
+	width: 30%;
+	margin: 10px 5px;
+  background:rgb(255, 255, 255);
+}
+
+.size-btn{
+  width: 45%;
+  text-align: center
+}
+
+.main-header{
+  background:rgb(255, 255, 255);
+}
+>>>>>>> 91f57abd8de09cdcba5e3557e7e69d2a298b07dc
