@@ -1,17 +1,24 @@
 const express = require('express');
+const { Entry } = require('../db/models');
 
 const router = express.Router();
-//const isAdminMiddle = require('../middleware/common');
 
 
-router.get('/', (req, res) => {
-	const message = '';
-	res.render('index', { message });
+router.get('/', async (req, res) => {
+	try {
+		const entries = await Entry.findAll({
+			order: [['id', 'DESC']],
+		});
+
+		console.log('&&&&&&&&&&', entries);
+		res.render('index', { entries }); // ХБС!!!
+	} catch (error) {
+		res.render('error', {
+			message: 'Не удалось получить записи из базы данных',
+			error: {},
+		});
+	}
 });
 
-// router.get('/secret',isAdminMiddle, (req, res) => {
-//   //const { isAdmin } = req;
-//   res.send('top secret'); 
-// }); 
 
 module.exports = router;
