@@ -6,13 +6,16 @@
 	{{#each entries}}
 	<div class="entry-card">
 
-		<img src="/uploads/{{myImage}}" class="card-img-top" alt="...">
+		<div class="c-header">
+			<img src="/uploads/{{myImage}}" class="card-img-top" alt="...">
+		</div>
 
 		<div class="card-body">
 			<h5 class="card-title">{{title}}</h5>
 			<p class="card-text">{{type}}</p>
 			<p class="card-text">{{body}}</p>
-
+		</div>
+		<div class="c-footer">
 			<a href="/entry/{{id}}" class="btn btn-success size-btn">Подробнее</a>
 		</div>
 	</div>
