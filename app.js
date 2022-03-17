@@ -48,10 +48,10 @@ app.use(session(sessionConfig));
 // res.locals
 app.use((req, res, next) => {
 
-	res.locals.username = req.session?.user?.name;
+	res.locals.user = req.session?.user;
 
 	console.log("\n\x1b[33m", 'req.session.user :', req.session.user);
-	console.log("\x1b[35m", 'res.locals.username:', res.locals.username);
+	console.log("\x1b[35m", 'res.locals.user:', res.locals.user);
 	next();
 });
 

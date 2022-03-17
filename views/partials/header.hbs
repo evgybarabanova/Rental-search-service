@@ -23,11 +23,12 @@
 				</span>
 			 <nav class="clearfix mar-b-1">
         <ul class="no-bullets no-margin no-padding right">
-          {{#if username}}
-          <li class="pipe-separate t-light-green left"><a>{{username}}</a></li>
+          {{#if user}}
+          <li class="pipe-separate t-light-green left"><a href="/cart/{{user.id}}">Избранное</a></li> 
+          <li class="pipe-separate t-light-green left"><a>{{user.name}}</a></li>
           <li class="pipe-separate t-light-green left"><a href="/signout">Выйти</a></li>
           {{/if}}
-          {{#unless username}}
+          {{#unless user}}
           <li class="pipe-separate t-light-green left"><a href="/signup">Регистрация</a></li>
           <li class="pipe-separate t-light-green left"><a href="/signin">Войти</a></li>
           {{/unless}}
