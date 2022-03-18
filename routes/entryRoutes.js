@@ -44,6 +44,7 @@ router.post('/new', upload, async (req, res) => {
 			body: req.body.body,
 			type: req.body.type,
 			rooms: req.body.rooms,
+      price: req.body.price,
 			geo: req.body.geo,
 			user_id: req.session.user.id
 		})
@@ -58,8 +59,8 @@ router.post('/new', upload, async (req, res) => {
 
 	} catch (error) {
 		res.render('error', {
-			message: 'Не удалось создать объявление',
-			error: {},
+			message: 'Не удалось создать объявление: ' + error.message,
+			error,
 		});
 	}
 
@@ -74,8 +75,9 @@ router.get('/:id', async (req, res) => {
 	try {
 		entry = await Entry.findByPk(req.params.id);
 		images = await Image.findAll({ where: { entry_id: entry.id }, raw: true });
+    const first = images.pop()
 		isAuthor = entry.user_id === req.session.user.id || req.session.user.role === 'admin'
-		res.render('entry/entry', { entry, isAuthor, images });
+		res.render('entry/entry', { entry, isAuthor, images,first });
 	} catch (error) {
 		res.render('error', {
 			message: 'Не удалось получить запись из базы данных',
