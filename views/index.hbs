@@ -1,29 +1,44 @@
 <!-- body -->
 
 <script defer src="/js/cart.js"></script>
-{{#each entries}}
-<div class="card" style="width: 18rem;">
 
-  <img src="/uploads/{{Images}}" class="card-img-top" alt="...">
-  
-  <div class="card-body">
-    <h5 class="card-title">{{title}}</h5>
-    <p class="card-text">{{type}}</p>
-     <p class="card-text">{{body}}</p>
-    <a href="/entry/{{id}}" class="btn btn-primary">Подробнее</a>
-    {{#if isCart}}
-      <svg xmlns="http://www.w3.org/2000/svg" id="{{id}}" width="16" height="16" fill="red" class="bi" viewBox="0 0 16 16">
-  <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
-</svg>
-{{/if}}
-{{#unless isCart}}
-  <svg xmlns="http://www.w3.org/2000/svg" id="{{id}}" width="16" height="16" fill="black" class="bi" viewBox="0 0 16 16">
-  <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
-</svg>
-    {{/unless}}
-  </div>
+<div class="container-entries">
+	{{#each entries}}
+	<div class="card entry-card">
+
+		<div class="c-header">
+			<img src="/uploads/{{Images}}" class="card-img-top img-foto" alt="...">
+		</div>
+
+
+		<div class="card-body">
+			<h5 class="card-title">{{title}}</h5>
+			<p class="card-text">{{type}}</p>
+			<p class="card-text">{{body}}</p>
+
+			<div class="c-footer">
+				<a href="/entry/{{id}}" class="btn btn-primary">Подробнее</a>
+				{{#if isCart}}
+				<svg xmlns="http://www.w3.org/2000/svg" id="{{id}}" width="16" height="16" fill="red" class="bi"
+					viewBox="0 0 16 16">
+					<path
+						d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
+				</svg>
+				{{/if}}
+				{{#unless isCart}}
+				<svg xmlns="http://www.w3.org/2000/svg" id="{{id}}" width="16" height="16" fill="black" class="bi"
+					viewBox="0 0 16 16">
+					<path
+						d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
+				</svg>
+				{{/unless}}
+
+			</div>
+
+		</div>
+	</div>
+	{{/each}}
 </div>
-{{/each}}
 
 
 
@@ -52,50 +67,50 @@
 
 
 <div class="container-entries">
- 
 
-<div class="container-sm">Наши приемущества</div>
 
-<br />
+	<div class="container-sm">Наши приемущества</div>
 
-<div class="container-sm best">
-  <div class="card">
-    <div class="card-header">
-      Сделаем всё за вас
-    </div>
-    <div class="card-body">
-      <blockquote class="blockquote mb-0">
-        <p>Найдем квартиру мечты, составим выгодный договор и сэкономим вам силы и время. Личный помощник возьмет
-          все заботы на себя!</p>
+	<br />
 
-      </blockquote>
-    </div>
-  </div>
+	<div class="container-sm best">
+		<div class="card">
+			<div class="card-header">
+				Сделаем всё за вас
+			</div>
+			<div class="card-body">
+				<blockquote class="blockquote mb-0">
+					<p>Найдем квартиру мечты, составим выгодный договор и сэкономим вам силы и время. Личный помощник возьмет
+						все заботы на себя!</p>
 
-  <div class="card">
-    <div class="card-header">
-      Полная база
-    </div>
-    <div class="card-body">
-      <blockquote class="blockquote mb-0">
-        <p>Мониторим все соцсети и площадки по аренде недвижимости — вы не пропустите свой вариант.</p>
+				</blockquote>
+			</div>
+		</div>
 
-      </blockquote>
-    </div>
-  </div>
+		<div class="card">
+			<div class="card-header">
+				Полная база
+			</div>
+			<div class="card-body">
+				<blockquote class="blockquote mb-0">
+					<p>Мониторим все соцсети и площадки по аренде недвижимости — вы не пропустите свой вариант.</p>
 
-  <div class="card">
-    <div class="card-header">
-      Актуальные объявления
-    </div>
-    <div class="card-body">
-      <blockquote class="blockquote mb-0">
-        <p>Специальный алгоритм удаляет дубли, проверяет актуальность объявлений и вычисляет соответствие цены
-          площади и местоположению квартиры.</p>
+				</blockquote>
+			</div>
+		</div>
 
-      </blockquote>
-    </div>
-  </div>
-</div>
-<br />
-<br />
+		<div class="card">
+			<div class="card-header">
+				Актуальные объявления
+			</div>
+			<div class="card-body">
+				<blockquote class="blockquote mb-0">
+					<p>Специальный алгоритм удаляет дубли, проверяет актуальность объявлений и вычисляет соответствие цены
+						площади и местоположению квартиры.</p>
+
+				</blockquote>
+			</div>
+		</div>
+	</div>
+	<br />
+	<br />
