@@ -43,8 +43,8 @@ let entries;
 try {
  
   cart = await Basket.findAll({where: {user_id: req.session.user.id}})
-const entriesIds = cart.map(e=>e.entry_id)
- const entries = await Entry.findAll({include:Image, where:{id:entriesIds}})
+  const entriesIds = cart.map(e=>e.entry_id)
+  const entries = await Entry.findAll({include:Image, where:{id:entriesIds}})
  
  const arr = entries.map((e)=> { 
    e.Images = e.Images[0].image
