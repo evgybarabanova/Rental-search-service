@@ -16,4 +16,17 @@ router.get('/search', async (req, res) => {
   }
 })
 
+router.delete('/delete', async (req, res) => {
+  res.sendStatus(200);
+})
+
+// GET /entries/:id/edit
+router.get('/:id/edit', async(req, res) => {
+  const { id } = req.params;
+  console.log(id, '-->', req.params);
+  const entry = await Entry.findOne({ where: { id }, raw: true });
+  console.log(entry);
+  res.render('entry/entries', { entry });
+});
+
 module.exports = router;

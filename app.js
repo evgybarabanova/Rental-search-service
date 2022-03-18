@@ -21,6 +21,7 @@ const entryRoutes = require('./routes/entryRoutes');
 const entriesRoutes = require('./routes/entriesRoutes');
 const basketRoutes = require('./routes/basketRoutes');
 
+
 const sessionConfig = {
 	name: 'sid',
 	store: new FileStore(),
@@ -67,6 +68,14 @@ app.use((req, res, next) => {
 	req.isAdmin = true;
 	next();
 });
+
+// app.get('/entries/:id', (req, res) => {
+//   //res.redirect('./entry/entries/:id');
+//   const { id } = req.params;
+//   res.send('hello')
+// })
+
+
 
 app.listen(PORT, () => {
 	console.log(`It's all good in da hood: ${PORT}`);
