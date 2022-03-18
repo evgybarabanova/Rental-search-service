@@ -1,7 +1,7 @@
 {{#unless entry}}
 <p>Нет такой записи</p>
 {{/unless}}
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" style="width: 1000px" >
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="/uploads/{{first.image}}" class="d-block w-100" alt="...">
@@ -31,13 +31,11 @@
 {{/each}} --}}
 {{#if isAuthor}}
 <ul id="editAndDeleteUl" class="no-bullets no-padding mar-t-2">
-  <li class="pipe-separate left">
-    <a href="/entries/{{ entry.id }}/edit" class="c-white">edit</a>
-  </li>
+<a href="/entries/{{ entry.id }}/edit"><button class="btn btn-secondary">Редактировать</button></a>
+    <form action="/entries/delete/{{ entry.id }}" method="post">
 
-  <li class="pipe-separate left">
-    <button id="deleteEntryButton" data-entryid="{{entry.id}}" value="delete"
-      class="no-border no-outline no-bg c-white hover-underline">delete</button>
-  </li>
+    <button id="deleteEntryButton" 
+      class="btn btn-secondary">Удалить</button>
+    </form>
 </ul>
 {{/if}}

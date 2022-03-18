@@ -7,7 +7,8 @@ const {
   renderSignInForm,
   renderSignUpForm,
 } = require("../controllers/authControllers");
-const {Basket, Entry, Image} = require("../db/models")
+const {Basket, Entry, Image} = require("../db/models");
+const {isAuth}  = require("../middlewares/userMiddlewares");
 const router = express.Router();
 
 router
@@ -26,7 +27,7 @@ router
 
 router
 .route('/add')
-.post( async (req, res) => {
+.post( isAuth, async (req, res) => {
  const id = Number(req.body.id)
  try {
    const cart = await Basket.create({ entry_id: id, user_id: req.session.user.id})
@@ -38,7 +39,7 @@ router
 
 router
 .route('/cart/:id')
-.get( async (req, res)=> {
+.get( isAuth, async (req, res)=> {
 let entries;
 try {
  

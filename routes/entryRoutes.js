@@ -36,7 +36,7 @@ router.get('/new', isAuth, (req, res) => {
 	res.render('entry/forrent');
 });
 
-router.post('/new', upload, async (req, res) => {
+router.post('/new', isAuth, upload, async (req, res) => {
 	let entry
 	try {
 		entry = await Entry.create({
@@ -76,9 +76,12 @@ router.get('/:id', async (req, res) => {
 		entry = await Entry.findByPk(req.params.id);
 		images = await Image.findAll({ where: { entry_id: entry.id }, raw: true });
     const first = images.pop()
-		isAuthor = entry.user_id === req.session.user.id || req.session.user.role === 'admin'
+    if (req.session.user) {
+      isAuthor = entry.user_id === req.session.user.id || req.session.user.role === 'admin'
+    }
 		res.render('entry/entry', { entry, isAuthor, images,first });
 	} catch (error) {
+    console.log(error);
 		res.render('error', {
 			message: 'Не удалось получить запись из базы данных',
 			error: {},
