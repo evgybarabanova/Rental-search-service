@@ -1,13 +1,22 @@
-{{#each entries}}
-<div class="card" style="width: 18rem;">
+<script defer src="/js/fav.js"></script>
 
-  <img src="/uploads/{{Images}}" class="card-img-top" alt="...">
-  
-  <div class="card-body">
-    <h5 class="card-title">{{title}}</h5>
-    <p class="card-text">{{type}}</p>
-     <p class="card-text">{{body}}</p>
-    <a href="/entry/{{id}}" class="btn btn-primary">Подробнее</a>    
-  </div>
+<div class="cards">
+	{{#each entries}}
+	<div class="card" id="card{{id}}" style="width: 18rem;">
+
+		<img src="/uploads/{{Images}}" class="card-img-top" alt="...">
+
+		<div class="card-body">
+			<h5 class="card-title">{{title}}</h5>
+			<p class="card-text">{{type}}</p>
+			<p class="card-text">{{body}}</p>
+			<a href="/entry/{{id}}" class="btn btn-primary">Подробнее</a>
+			<br>
+			<div class="remove-btn">
+				<a href="#" class="btn btn-danger btn-sm" id="remove-{{id}}">Убрать из избранного</a>
+			</div>
+
+		</div>
+	</div>
+	{{/each}}
 </div>
-{{/each}}
