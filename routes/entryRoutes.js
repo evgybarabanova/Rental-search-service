@@ -6,21 +6,23 @@ const { Entry, User, Basket, Image } = require('../db/models');
 // ВСЕ ОБЪЯВЛЕНИЯ
 router.get('/', async (req, res) => {
 	try {
-
-		const entries = await Entry.findAll({
-			include: Image,
-			order: [['id', 'DESC']],
-			raw: true,
-		});
-
-		// console.log("🚀 ~ file: entryRoutes.js ~ line 12 ~ router.get ~ entries", entries)
-		const arr = entries.map((e) => {
-			e.myImage = e['Images.image']
-			return e
-		})
-		console.log("🚀 ~ file: entryRoutes.js ~ line 15 ~ router.get ~ arr", arr)
-		res.render('index', { entries });
+    let entriesIds
+		const entries = await Entry.findAll({include:Image});
+    const arr = entries.map((e)=> { 
+      e.Images = e.Images[0].image
+      return e
+    })
+    if (req.session.user) {
+      const cart = await Basket.findAll({where:{user_id: req.session.user.id},raw:true})
+      entriesIds = cart.map(e=>e.entry_id)
+      const arr2 = entries.map((e)=>{
+        e.isCart = entriesIds.includes(e.id)
+      })
+    }
+   console.log("🚀 ~ file: entryRoutes.js ~ line 15 ~ router.get ~ arr", entries)
+		res.render('index', { entries }); // ХБС!!!
 	} catch (error) {
+    console.log(error);
 		res.render('error', {
 			message: 'Не удалось получить записи из базы данных: ' + error.message,
 			error,
