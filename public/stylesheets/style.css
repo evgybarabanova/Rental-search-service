@@ -1,21 +1,37 @@
 body {
   background-color: rgb(255, 255, 255);
+  background: url('../images/depositphotos_87627748-stock-illustration-real-estate-icons-set.jpg') no-repeat;
+  background-position: center;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .icon {
   width: 5vw;
 }
 
- .btn-success {
+.btn-success {
   margin-right: 20px;
   display: flex;
   justify-content: flex-end;
-} 
+}
 
 .container-sm {
+  margin: 10px 0;
   display: flex;
   justify-content: center;
   font-size: 30px;
+  background-color: rgb(207, 207, 207);
+  margin: 10px 0 0 0;
+}
+
+ .line {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 20px 0 0 0;
+}
+
+.form-select {
+  width: 200px;
 }
 
 .container-xl {
@@ -29,7 +45,7 @@ body {
 }
 
 .card {
-  margin-right: 20px;
+  /* margin-right: 20px; */
 }
 
 .btn-group {
@@ -41,6 +57,47 @@ body {
   justify-content: center;
 }
 
-.footer{
+.footer {
   font-size: larger;
+  background: rgb(255, 255, 255);
+}
+
+.container-entries {
+  width: 100%;
+  margin: 30px 0;
+  display: flex;
+  /* justify-content: space-evenly; */
+  flex-wrap: wrap;
+}
+
+.entry-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+  width: 100%;
+  max-width: 200px;
+  max-height: 412px;
+  margin: 10px 5px;
+  background: rgb(255, 255, 255);
+}
+
+.size-btn {
+  width: 100%;
+  max-width: 120px;
+  text-align: center
+}
+
+.main-header {
+  background: rgb(255, 255, 255);
+}
+
+.c-footer {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  margin: 0 auto;
+}
+
+.c-header {
+  height: 224px;
 }

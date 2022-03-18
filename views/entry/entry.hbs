@@ -5,10 +5,11 @@
 
 <h1>{{entry.title}}</h1>
 
-<p>{{entry.body}}</p>
+<div class="main-header"><p>{{entry.body}}</p>
 <p>Комнаты  {{entry.rooms}}</p>
 <p>Местоположение  {{entry.geo}}</p>
 <p>Тип   {{entry.type}}</p>
+</div>
 
 {{#each images}}
 <img src="/uploads/{{image}}" alt="hz"/>
