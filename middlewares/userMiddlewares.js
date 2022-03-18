@@ -3,7 +3,7 @@ const {Entry,User} = require('../db/models')
 const isAuth = (req, res, next) => {
   if (req.session.user) {
     next();
-  }else res.sendStatus(401);
+  }else res.redirect('/signup');
 }
 const isAdmin = (req, res, next) => {
   if (req.session.user.role === 'admin') {

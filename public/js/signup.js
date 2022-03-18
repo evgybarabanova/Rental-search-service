@@ -7,8 +7,9 @@ signupForm.addEventListener('submit', async (event) => {
     email: event.target.email.value,
     password: event.target.password.value,
   };
+  console.log("🚀 ~ file: signup.js ~ line 11 ~ signupForm.addEventListener ~ dataObj", dataObj)
 
-  const response = await fetch('/user/registration', {
+  const response = await fetch('/signup', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
