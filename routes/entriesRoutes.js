@@ -15,6 +15,11 @@ router.get('/search', async (req, res) => {
     res.status(400).json({ error: 'Не удалось отфильтровать запись из базы данных' })
   }
 })
+
+router.delete('/delete', async (req, res) => {
+  res.sendStatus(200);
+})
+
 // GET /entries/:id/edit
 router.get('/:id/edit', async(req, res) => {
   const { id } = req.params;
