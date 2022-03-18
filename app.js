@@ -18,7 +18,8 @@ dbConnectionCheck();
 const indexRoutes = require('./routes/indexRoutes');
 const userRoutes = require('./routes/userRoutes');
 const entryRoutes = require('./routes/entryRoutes');
-const entriesRoutes = require('./routes/entriesRoutes')
+const entriesRoutes = require('./routes/entriesRoutes');
+const basketRoutes = require('./routes/basketRoutes');
 
 const sessionConfig = {
 	name: 'sid',
@@ -61,6 +62,7 @@ app.use('/', indexRoutes);
 app.use('/', userRoutes);
 app.use('/entry', entryRoutes);
 app.use('/entries', entriesRoutes);
+app.use('/basket', basketRoutes);
 app.use((req, res, next) => {
 	req.isAdmin = true;
 	next();
