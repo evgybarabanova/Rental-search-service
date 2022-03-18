@@ -26,6 +26,9 @@ module.exports = {
       rooms: {
         type: Sequelize.INTEGER,
       },
+      price: {
+        type: Sequelize.STRING,
+      },
       geo: {
         type: Sequelize.STRING,
       },

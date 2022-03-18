@@ -43,6 +43,7 @@ router.post('/new', upload, async (req, res) => {
 			body: req.body.body,
 			type: req.body.type,
 			rooms: req.body.rooms,
+      price: req.body.price,
 			geo: req.body.geo,
 			user_id: req.session.user.id
 		})
@@ -57,8 +58,8 @@ router.post('/new', upload, async (req, res) => {
 
 	} catch (error) {
 		res.render('error', {
-			message: 'Не удалось создать объявление',
-			error: {},
+			message: 'Не удалось создать объявление: ' + error.message,
+			error,
 		});
 	}
 
