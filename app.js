@@ -67,6 +67,14 @@ app.use((req, res, next) => {
 	next();
 });
 
+// app.get('/entries/:id', (req, res) => {
+//   //res.redirect('./entry/entries/:id');
+//   const { id } = req.params;
+//   res.send('hello')
+// })
+
+
+
 app.listen(PORT, () => {
 	console.log(`It's all good in da hood: ${PORT}`);
 });
