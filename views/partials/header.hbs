@@ -15,24 +15,20 @@
 					</li> --}}
           
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="/entry/new">Сдать жилье</a>
+						  <a href="/entry/new"><button class="btn btn-secondary">Сдать жилье</button></a>
 					</li>
 				</ul>
-				<span class="navbar-text">
-					???
-				</span>
-			 <nav class="clearfix mar-b-1">
-        <ul class="no-bullets no-margin no-padding right">
+			 <nav class="clearfix mar-b-1 myNav">
           {{#if user}}
-          <li class="pipe-separate t-light-green left"><a href="/cart/{{user.id}}">Избранное</a></li> 
-          <li class="pipe-separate t-light-green left"><a>{{user.name}}</a></li>
-          <li class="pipe-separate t-light-green left"><a href="/signout">Выйти</a></li>
+          <p>{{user.name}}</p>
+          <a href="/cart/{{user.id}}"><button class="btn btn-secondary">Избранное</button></a>
+          <a href="/signout"><button class="btn btn-secondary">Выйти</button></a>
           {{/if}}
-          {{#unless user}}
-          <li class="pipe-separate t-light-green left"><a href="/signup">Регистрация</a></li>
-          <li class="pipe-separate t-light-green left"><a href="/signin">Войти</a></li>
+            {{#unless user}}
+               <a href="/signup"><button class="btn btn-secondary">Регистрация</button></a>
+               <a href="/signin"><button class="btn btn-secondary">Войти</button></a>
+        
           {{/unless}}
-        </ul>
       </nav>
 			</div>
 		</div>

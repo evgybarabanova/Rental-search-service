@@ -18,7 +18,7 @@ cartSvg.forEach((e)=> {
       if (response.status === 200) {
         
         if(event.target.style.fill === 'black' || event.target.style.fill === ''){
-          event.target.style.fill = 'red'
+          event.target.style.fill = 'gold'
         } else {
           event.target.style.fill = 'black'
         }
