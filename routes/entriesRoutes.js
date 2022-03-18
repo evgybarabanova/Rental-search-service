@@ -15,5 +15,13 @@ router.get('/search', async (req, res) => {
     res.status(400).json({ error: 'Не удалось отфильтровать запись из базы данных' })
   }
 })
+// GET /entries/:id/edit
+router.get('/:id/edit', async(req, res) => {
+  const { id } = req.params;
+  console.log(id, '-->', req.params);
+  const entry = await Entry.findOne({ where: { id }, raw: true });
+  console.log(entry);
+  res.render('entry/entries', { entry });
+});
 
 module.exports = router;
