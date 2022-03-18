@@ -1,6 +1,6 @@
 body {
   background-color: rgb(255, 255, 255);
-  background: url('../images/depositphotos_87627748-stock-illustration-real-estate-icons-set.jpg') no-repeat;
+  /* background: url('../images/depositphotos_87627748-stock-illustration-real-estate-icons-set.jpg') no-repeat; */
   background-position: center;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -44,10 +44,6 @@ body {
   width: 150px;
 }
 
-.card {
-  /* margin-right: 20px; */
-}
-
 .btn-group {
   margin-right: 20px;
 }
@@ -57,7 +53,8 @@ body {
   justify-content: center;
 }
 
-.footer {
+
+.footer{
   font-size: larger;
   background: rgb(255, 255, 255);
 }
@@ -100,4 +97,8 @@ body {
 
 .c-header {
   height: 224px;
+}
+
+.img-foto {
+	height: 224px;
 }
