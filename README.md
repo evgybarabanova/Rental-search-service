@@ -13,4 +13,7 @@
 * Добавление в избранное понравившегося жилья
 
 
-
+# Стек проекта 
+JS (ES6), HTML5, CSS3, SCSS, Bootstrap, NodeJs,
+Express, WebSocket, PostgreSQL, Sequelize ORM, GitHub, VS Code,
+Trello, Figma.
